@@ -1,9 +1,18 @@
 {
+  "name": "vikram-hostel-management-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build:frontend": "npm install --prefix frontend && npm run build --prefix frontend",
+    "build:backend": "npm install --prefix backend",
+    "build": "npm run build:frontend"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.11",
     "pptxgenjs": "^4.0.1"
-  },
-  "scripts": {
-    "dev": "vite"
   }
 }

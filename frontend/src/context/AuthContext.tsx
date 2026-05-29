@@ -1,12 +1,13 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-export type UserRole = 'admin';
+export type UserRole = 'admin' | 'student';
 
 export interface User {
   id: string;
   name: string;
   email: string;
   role: UserRole;
+  gender?: 'male' | 'female';
   avatar?: string;
 }
 
@@ -15,6 +16,7 @@ interface RegisterData {
   email: string;
   password: string;
   role: UserRole;
+  gender?: 'male' | 'female';
 }
 
 interface AuthContextType {
@@ -59,14 +61,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    // Mock authentication logic - only admin users allowed
-    const defaultUsers: User[] = [
+    const defaultUsers = [
       {
         id: '1',
         name: 'Admin User',
         email: 'admin@vikramuniv.ac.in',
-        role: 'admin',
-        avatar: '/images/admin-avatar.jpg'
+        role: 'admin' as UserRole,
+        avatar: '/images/admin-avatar.jpg',
+        password: 'password'
       }
     ];
 
@@ -74,11 +76,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const registeredUsers = JSON.parse(localStorage.getItem('vikram_registered_users') || '[]');
     const allUsers = [...defaultUsers, ...registeredUsers];
 
-    const foundUser = allUsers.find((u: User) => u.email === email);
+    const foundUser = allUsers.find((u: any) => u.email === email);
     
-    if (foundUser && password === 'password') {
-      setUser(foundUser);
-      localStorage.setItem('vikram_user', JSON.stringify(foundUser));
+    if (foundUser && foundUser.password === password) {
+      // Create user object without password for context state
+      const { password: _, ...userWithoutPassword } = foundUser;
+      setUser(userWithoutPassword as User);
+      localStorage.setItem('vikram_user', JSON.stringify(userWithoutPassword));
       setLoading(false);
       return true;
     }
@@ -94,7 +98,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     try {
-      // Check if user already exists (simulate database check)
+      // Check if user already exists
       const existingUsers = JSON.parse(localStorage.getItem('vikram_registered_users') || '[]');
       const userExists = existingUsers.some((u: any) => u.email === data.email);
       
@@ -109,10 +113,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         name: data.name,
         email: data.email,
         role: data.role,
+        gender: data.gender,
       };
       
-      // Save to "database" (localStorage for demo)
-      existingUsers.push(newUser);
+      // Save user but also store their password for mock login
+      // We will store the full user object including password in the array
+      const userWithPassword = { ...newUser, password: data.password };
+      existingUsers.push(userWithPassword);
       localStorage.setItem('vikram_registered_users', JSON.stringify(existingUsers));
       
       setLoading(false);

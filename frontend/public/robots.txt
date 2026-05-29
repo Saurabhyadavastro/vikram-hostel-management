@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yadav Computers and CSC Services - Landscape Poster</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Landscape aspect ratio for a standard poster */
+        .poster-container {
+            width: 100%;
+            max-width: 1100px; /* Control width for on-screen viewing */
+            aspect-ratio: 16 / 9; /* Common landscape ratio */
+            margin: auto;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f8fafc;
+        }
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-top: 3px solid #38bdf8; /* Light blue accent */
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .service-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+        .section-title {
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #38bdf8;
+        }
+        .brand-text {
+            color: #f8fafc;
+            text-shadow: 0 0 8px #38bdf8;
+        }
+        .accent-icon {
+            color: #38bdf8;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 p-4 sm:p-8 flex items-center justify-center min-h-screen">
+
+    <div class="poster-container shadow-2xl rounded-2xl overflow-hidden flex flex-col p-8 md:p-10">
+        <!-- Header Section -->
+        <header class="flex justify-between items-center border-b-2 border-slate-700 pb-6 mb-6">
+            <div>
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight brand-text">YADAV COMPUTERS</h1>
+                <p class="text-xl md:text-2xl font-semibold text-slate-300">& CSC SERVICES</p>
+            </div>
+            <div class="text-center">
+                 <i class="fas fa-laptop-code text-6xl md:text-7xl brand-text"></i>
+            </div>
+        </header>
+
+        <!-- Main Content Section -->
+        <main class="flex-grow">
+            <h2 class="text-center text-3xl font-bold mb-6 text-slate-200">Our Professional Services</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Column 1: Government & CSC -->
+                <div class="space-y-4">
+                    <h3 class="section-title text-lg mb-2">Government & CSC</h3>
+                    <div class="service-card p-4 rounded-lg flex items-center"><i class="fas fa-id-card fa-fw text-xl accent-icon mr-3"></i><span>Aadhaar Card Update</span></div>
+                    <div class="service-card p-4 rounded-lg flex items-center"><i class="fas fa-address-card fa-fw text-xl accent-icon mr-3"></i><span>PAN Card Application</span></div>
+                    <div class="service-card p-4 rounded-lg flex items-center"><i class="fas fa-school fa-fw text-xl accent-icon mr-3"></i><span>UDISE Work</span></div>
+                    <div class="service-card p-4 rounded-lg flex items-center"><i class="fas fa-file-signature fa-fw text-xl accent-icon mr-3"></i><span>UP Board Registration</span></div>
+                </div>
+
+                <!-- Column 2: Certificates & ITR -->
+                <div class="space-y-4">
+                    <h3 class="section-title text-lg mb-2">Certificates & ITR</h3>
+                    <div class="service-card p-4 rounded-lg flex items-center"><i class="fas fa-file-invoice-dollar fa-fw text-xl accent-icon mr-3"></i><span>ITR Filing</span></div>
+                    <div class="service-card p-4 rounded-lg flex items-center"><i class="fas fa-file-alt fa-fw text-xl accent-icon mr-3"></i><span>Income Certificate</span></div>
+                    <div class="service-card p-4 rounded-lg flex items-center"><i class="fas fa-users fa-fw text-xl accent-icon mr-3"></i><span>Caste Certificate</span></div>
+                    <div class="service-card p-4 rounded-lg flex items-center"><i class="fas fa-home fa-fw text-xl accent-icon mr-3"></i><span>Domicile Certificate</span></div>
+                </div>
+
+                <!-- Column 3: Financial -->
+                <div class="space-y-4">
+                    <h3 class="section-title text-lg mb-2">Financial Services</h3>
+                    <div class="service-card p-4 rounded-lg flex items-center"><i class="fas fa-hand-holding-usd fa-fw text-xl accent-icon mr-3"></i><span>Money from Aadhaar</span></div>
+                    <div class="service-card p-4 rounded-lg flex items-center"><i class="fas fa-exchange-alt fa-fw text-xl accent-icon mr-3"></i><span>Money Transfer</span></div>
+                </div>
+
+                <!-- Column 4: Digital & Tech -->
+                <div class="space-y-4">
+                    <h3 class="section-title text-lg mb-2">Digital & Tech</h3>
+                    <div class="service-card p-4 rounded-lg flex items-center"><i class="fas fa-code fa-fw text-xl accent-icon mr-3"></i><span>Website Development</span></div>
+                    <div class="service-card p-4 rounded-lg flex items-center"><i class="fas fa-palette fa-fw text-xl accent-icon mr-3"></i><span>Graphic Design</span></div>
+                    <div class="service-card p-4 rounded-lg flex items-center"><i class="fas fa-mobile-alt fa-fw text-xl accent-icon mr-3"></i><span>App Development</span></div>
+                    <div class="service-card p-4 rounded-lg flex items-center"><i class="fas fa-headset fa-fw text-xl accent-icon mr-3"></i><span>Technical Support</span></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="text-center border-t-2 border-slate-700 pt-6 mt-8">
+            <p class="font-bold text-lg text-sky-400">Contact Us</p>
+            <p class="text-sm mt-1">Your Address Here, City, Pin Code | Phone: +91-XXXXXXXXXX | Email: contact@yadavcomputers.com</p>
+        </footer>
+    </div>
+
+</body>
+</html>

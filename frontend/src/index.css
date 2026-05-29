@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+/* Custom CSS Variables for University Theme */
+:root {
+  --university-blue: #1e40af;
+  --university-gold: #f59e0b;
+  --university-dark-blue: #1e3a8a;
+  --university-light-gold: #fbbf24;
+  --surface: #ffffff;
+  --background: #f8fafc;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+}
+
+/* Base Styles */
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Loading Animation */
+.university-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: radial-gradient(circle at center, var(--university-blue) 0%, var(--university-dark-blue) 100%);
+}
+
+.university-logo-animation {
+  animation: logo-float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 25px rgba(245, 158, 11, 0.4));
+}
+
+@keyframes logo-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-15px) scale(1.05); }
+}
+
+/* Custom Components */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: var(--shadow-lg);
+}
+
+.university-gradient {
+  background: linear-gradient(135deg, var(--university-blue) 0%, var(--university-dark-blue) 100%);
+}
+
+.university-gradient-alt {
+  background: linear-gradient(225deg, var(--university-dark-blue) 0%, var(--university-blue) 100%);
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, var(--university-gold) 0%, var(--university-light-gold) 100%);
+}
+
+/* Bento Grid Utilities */
+.bento-item {
+  @apply rounded-3xl p-8 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] cursor-pointer;
+  box-shadow: var(--shadow-md);
+}
+
+.bento-item:hover {
+  box-shadow: var(--shadow-xl);
+}
+
+/* Button Refinement */
+.btn-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-blue-500/25 active:transform active:scale-95 flex items-center justify-center gap-2;
+}
+
+.btn-accent {
+  @apply bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-amber-500/25 active:transform active:scale-95 flex items-center justify-center gap-2;
+}
+
+.btn-outline {
+  @apply border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-bold py-3 px-8 rounded-full transition-all duration-300 active:transform active:scale-95 flex items-center justify-center gap-2;
+}
+
+/* Card Styles */
+.hostel-card-new {
+  @apply bg-white rounded-[2rem] overflow-hidden transition-all duration-500 border border-slate-100;
+  box-shadow: var(--shadow-md);
+}
+
+.hostel-card-new:hover {
+  @apply -translate-y-2;
+  box-shadow: var(--shadow-2xl);
+}
+
+/* Animations */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes revealUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+
+/* Scrollbar Refinement */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 5px;
+  border: 2px solid #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Section Transitions */
+.section-divider {
+  @apply h-24 w-full;
+  background: linear-gradient(to bottom, transparent, var(--background));
+}
+

@@ -11,7 +11,7 @@ const LoadingScreen: React.FC = () => {
             <div className="absolute inset-2 bg-white rounded-full flex items-center justify-center p-2">
               <img 
                 src="/images/vikram-university-logo.jpg" 
-                alt="Vikram University Logo" 
+                alt="Samrat Vikramaditya University Logo" 
                 className="w-full h-full object-contain rounded-full"
                 onError={(e) => {
                   // Fallback to text logo if image fails to load
@@ -27,7 +27,7 @@ const LoadingScreen: React.FC = () => {
 
         {/* University Name */}
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 animate-fade-in-up">
-          Vikram University
+          Samrat Vikramaditya University
         </h1>
         <h2 className="text-xl md:text-2xl text-accent-200 mb-8 animate-fade-in-up">
           Hostel Management System

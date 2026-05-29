@@ -85,7 +85,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/admin-panel" element={<AdminPanel />} />
-            <Route path="/student" element={<StudentDashboard />} />
+            <Route path="/student-dashboard" element={<StudentDashboard />} />
           </Routes>
 
           {showLogin && (
